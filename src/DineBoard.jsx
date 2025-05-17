@@ -80,6 +80,7 @@ export default function () {
   const handleChangeFilter = (filterStatus) => {
     setFilterStatus(filterStatus);
   };
+  
   const totalTasks = finalTask.length;
 
   const visibleTasks = finalTask.filter((task) => {
