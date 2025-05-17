@@ -24,7 +24,7 @@ export default function OrderReport({
         <h2 className="text-xl font-bold mb-4">Order Reports</h2>
 
         <div className="flex gap-4 items-center">
-          <FaHouse color="white" />
+          <FaFilter color="white" />
           <select className="appearance-none bg-zinc-900 accent-orange-600 border-none outline-none rounded-sm text-blue-50"
            
             onChange={handleFilterChange}
