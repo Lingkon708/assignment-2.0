@@ -11,6 +11,7 @@ export default function () {
   const [finalTask, setFinalTask] = useState([]);
   const [orderId, setOrderId] = useState(1);
   const [deleiverd, setDelivered] = useState(0);
+  const [filterStatus, setFilterStatus] = useState("All");
   const handleAddClick = (productName, itemPrice) => {
     setAddedItems((prev) => {
       const isAdded = !!prev[productName];
@@ -26,7 +27,6 @@ export default function () {
     });
   };
 
-
   const handlePlaceOrder = (customerName) => {
     const newOrder = {
       id: orderId,
@@ -35,7 +35,7 @@ export default function () {
       TotalPrice: price,
       Status: "Pending",
     };
-     
+
     setFinalTask((prev) => [newOrder, ...prev]);
     setOrderId((prevId) => prevId + 1); // increment ID for next order
 
@@ -56,6 +56,7 @@ export default function () {
       task.Productname.trim() !== "" &&
       task.TotalProducts !== 0
     ) {
+      
       totalPendingProducts += 1;
     }
   });
@@ -67,26 +68,26 @@ export default function () {
         task.id === id ? { ...task, Status: "Delivered" } : task
       )
     );
+    
     setDelivered(deleiverd + 1);
   };
 
-  const handleMarkDelete=(id)=>{
-    setFinalTask((previous) => previous.filter((task) => task.id !== id))
-     setDelivered(deleiverd - 1);
-  }
- const handleChangeFilter=(filterStatus)=>{
-     setFinalTask(
-       filterStatus ==="All"
-    ? finalTask
-    : finalTask.filter((task) => task.Status === filterStatus)
-     )
-
- }
+  const handleMarkDelete = (id) => {
+    setFinalTask((previous) => previous.filter((task) => task.id !== id));
+    setDelivered(deleiverd - 1);
+  };
+  
+  const handleChangeFilter = (filterStatus) => {
+    setFilterStatus(filterStatus);
+  };
   const totalTasks = finalTask.length;
 
-  return (
-    
+  const visibleTasks = finalTask.filter((task) => {
+    if (filterStatus === "All") return true;
+    return task.Status === filterStatus;
+  });
 
+  return (
     <div className="text-white bg-background">
       <div className="container mx-auto px-4 h-screen flex flex-col font-bold">
         <Navbar />
@@ -105,7 +106,7 @@ export default function () {
               totalPendingTasks={totalTasks}
             />
             <OrderReport
-              finalTask={finalTask}
+              finalTask={visibleTasks}
               onMarkAsDelivered={handleMarkAsDelivered}
               onMarkAsDelete={handleMarkDelete}
               onChangeFilter={handleChangeFilter}

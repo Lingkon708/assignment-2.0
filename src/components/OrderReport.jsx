@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function OrderReport({
   finalTask,
   onMarkAsDelivered,
-  totalDelevired,
+ 
   onMarkAsDelete,
   onChangeFilter
   
