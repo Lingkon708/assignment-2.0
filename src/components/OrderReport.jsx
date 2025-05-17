@@ -1,4 +1,4 @@
-import { FaFilter } from "react-icons/fa";
+import { FaHouse } from "react-icons/fa";
 
 
 
