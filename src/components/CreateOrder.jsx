@@ -1,7 +1,7 @@
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { useState } from "react";
-import formData from "./FormData";
+import FormData from "./FormData";
 export default function CreateOrder({
   handleClick,
   price,
@@ -40,7 +40,7 @@ export default function CreateOrder({
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Choose Items</label>
           <div className="items-container">
-            {formData.map((Item) => (
+            {FormData.map((Item) => (
               <div
                 key={Item.productName}
                 className="bg-gray-700 bg-opacity-30 rounded-md p-3 mb-3 flex justify-between items-center hover:bg-opacity-40 transition-all duration-300"

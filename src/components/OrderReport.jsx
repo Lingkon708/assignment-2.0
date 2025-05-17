@@ -1,9 +1,5 @@
-/* eslint-disable no-unused-vars */
+
 import { FaFilter } from "react-icons/fa";
-import { useState } from "react";
-
-
-
 
 export default function OrderReport({
   finalTask,
@@ -57,7 +53,7 @@ export default function OrderReport({
               {finalTask.map((task) => {
                 if (task.Productname !== "" && task.TotalProducts !== 0) {
                   return (
-                    <tr className="border-t border-gray-700">
+                    <tr className="border-t border-gray-700" key={task.id}>
                       <td className="py-3">{task.id}</td>
                       <td className="py-3">{task.Productname}</td>
                       <td className="py-3">{task.TotalProducts}</td>

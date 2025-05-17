@@ -3,7 +3,7 @@ import { useState } from "react";
 import CreateOrder from "./components/CreateOrder";
 import Navbar from "./components/Navbar";
 import OrderReport from "./components/OrderReport";
-import OrderSumumary from "./components/OrderSamary";
+import OrderSamary from "./components/OrderSamary";
 export default function () {
   const [price, setPrice] = useState(0);
   const [addedItems, setAddedItems] = useState({});
@@ -100,7 +100,7 @@ export default function () {
             onPlaceOrder={handlePlaceOrder}
           />
           <div className="md:col-span-2 h-[calc(100vh_-_130px)] font-bold">
-            <OrderSumumary
+            <OrderSamary
               finalTask={finalTask}
               totalPendingProducts={totalPendingProducts}
               deleiverd={deleiverd}
