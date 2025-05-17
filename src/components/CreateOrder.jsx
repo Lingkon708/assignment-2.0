@@ -1,5 +1,4 @@
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
+
 import { useState } from "react";
 import FormData from "./FormData";
 export default function CreateOrder({
